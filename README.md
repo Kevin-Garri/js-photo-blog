@@ -11,3 +11,8 @@ Studiamo bene la risposta e i dati che ci fornisce iniziando a pensare a come po
 Inseriamo un foglio JavaScript ed effettuiamo una chiamata AJAX all’API di JSON Placeholder, sfruttando la risposta per generare dinamicamente in pagina una serie di foto!
 **Bonus**
 rendi la pagina responsive, in modo che su mobile e tablet le foto si dispongano man mano una sotto l’altra ed il titolo abbia una dimensione adeguata
+
+logica js
+//1.effetuare chiamata AJAX all'API con axios
+//2.ciclare array di oggetti ottenuto grazie a thunderClient con un forEach, destrutturo e prendo solo title e url e stampo
+//3. funzione che stampa la struttura html delle card con innerhtml
