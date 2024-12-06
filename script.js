@@ -59,20 +59,26 @@ axios.get('https://jsonplaceholder.typicode.com/photos?_limit=6')
       const { title, url } = elementi;
       stampoCard(title, url)
     });
+
     //aggiungo l'evento click a tutte le immagini delle card
-    const photoCard = document.getElementById('photoCard'); // Singolo elemento
-    photoCard.addEventListener('click', () => {
-      overlayContainer.classList.remove('display-none');
-      overlayContainer.innerHTML = `
-        <div class="overlay-box">
-          <button id="bottoneChiusura" class="bottone">Chiudi</button>
-          <img src="./img nayt/nayt sorpresa.jpg" alt="">
-        </div>
-      `;
-      document.getElementById('bottoneChiusura').addEventListener('click', () => {
-        overlayContainer.classList.add('display-none');
-      });
-    });
+
+    /*    const photo = document.querySelectorAll('.photoCard img');
+        photoCard.forEach(photo => {
+          photo.addEventListener('click', () => {
+            const overlayContainer = document.getElementById('overlayContainer'); // Assicurati che esista un container overlay
+            overlayContainer.classList.remove('display-none');
+            overlayContainer.innerHTML = `
+              <div class="overlay-box">
+                <button id="bottoneChiusura" class="bottone">Chiudi</button>
+                <img src="${photo.src}" alt="${photo.alt}">
+              </div>
+            `;
+            document.getElementById('bottoneChiusura').addEventListener('click', () => {
+              overlayContainer.classList.add('display-none');
+            });
+          });
+    
+        });*/
   });
 
 //3.stampo in pagina le card

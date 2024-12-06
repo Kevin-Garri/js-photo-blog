@@ -37,3 +37,6 @@ logica js seconda giornata
 //3.mostrare l'immagine cliccata nell'overlay
 //4.evento per chiudere l'overlay con bottone
 //5.bonus ruota card
+=========================================================================================
+//1.riprodurlo normalmente come nello screen con html e css
+//2.logica per farlo scomparire e riapparire 
