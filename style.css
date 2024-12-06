@@ -57,11 +57,12 @@ main {
 .col {
   position: relative;
   width: calc(33.33% - 20px);
-  flex-grow: 0;
-  flex-shrink: 1;
 }
 
 /*---card---*/
+/*transition permette di controllare l'animazione con la durata*/
+/*transform permette di scalare,ruotare, traslare e inclinare*/
+/*box-shadow mette l'ombra*/
 .card {
   height: 450px;
   padding: 15px;
@@ -71,12 +72,23 @@ main {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.card:hover {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover .pin-png {
+  display: none;
+}
+
 .pin-png {
   position: absolute;
   top: -15px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 10;
+  z-index: 1;
 }
 
 .photo-img {

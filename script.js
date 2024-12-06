@@ -48,6 +48,8 @@ Avrò bisogno della proprietà "title", che mi fornirà il testo da inserire nel
 
 //dati
 const photoCard = document.getElementById('photo-card');
+const bottoneChiusura = document.querySelector('bottone')
+const overlayCard = document.getElementById('overelay')
 
 //1.chiamata con axios
 axios.get('https://jsonplaceholder.typicode.com/photos?_limit=6')
@@ -64,10 +66,10 @@ axios.get('https://jsonplaceholder.typicode.com/photos?_limit=6')
 function stampoCard(title, url) {
   photoCard.innerHTML += `
         <div class="col">
+        <div class="card">
          <div class="pin-png">
             <img src="img/pin.svg" alt="">
          </div>
-         <div class="card">
             <div class="photo-img">
                <img src="${url}" alt="">
             </div>
