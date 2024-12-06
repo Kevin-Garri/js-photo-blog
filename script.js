@@ -45,3 +45,36 @@ Avrò bisogno della proprietà "title", che mi fornirà il testo da inserire nel
     "thumbnailUrl": "https://via.placeholder.com/150/56a8c2"
   }
 ]*/
+
+//dati
+const photoCard = document.getElementById('photo-card');
+
+//1.chiamata con axios
+axios.get('https://jsonplaceholder.typicode.com/photos?_limit=6')
+  .then(res => {
+    const ArrayOggetti = res.data;//proprietà che continene l'array di oggetti
+    //2.ciclo array, destrutturo l'oggetto e prendo title e url, ad ogni ciclo stampo in pagina
+    ArrayOggetti.forEach(elementi => {
+      const { title, url } = elementi;
+      stampoCard(title, url)
+    });
+  });
+
+//3.stampo in pagina le card
+function stampoCard(title, url) {
+  photoCard.innerHTML += `
+        <div class="col">
+         <div class="pin-png">
+            <img src="img/pin.svg" alt="">
+         </div>
+         <div class="card">
+            <div class="photo-img">
+               <img src="${url}" alt="">
+            </div>
+            <div class="photo-text">
+               <p>${title}</p>
+            </div>
+         </div>
+      </div>
+   `
+}
