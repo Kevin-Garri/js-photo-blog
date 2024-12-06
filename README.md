@@ -30,3 +30,10 @@ Inseriamo il pezzo di logica finale: quando una foto viene cliccata, dobbiamo fa
 Ci sono diversi modi di farlo, prova a sperimentare :faccia_leggermente_sorridente:
 **Bonus**
 Spostandosi col mouse sopra le foto, queste si zoommano, ruotano di 10 gradi e la loro ombra aumenta, il tutto in maniera fluida. Inoltre il mouse diventa un puntatore, per far capire all’utente che può cliccare
+=========================================================================================
+logica js seconda giornata
+//1.creare nuovi dati del bottone e dell'overlay
+//2.mostrare overlay al clic
+//3.mostrare l'immagine cliccata nell'overlay
+//4.evento per chiudere l'overlay con bottone
+//5.bonus ruota card

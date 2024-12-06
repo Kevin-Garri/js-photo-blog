@@ -48,8 +48,7 @@ Avrò bisogno della proprietà "title", che mi fornirà il testo da inserire nel
 
 //dati
 const photoCard = document.getElementById('photo-card');
-const bottoneChiusura = document.querySelector('bottone')
-const overlayCard = document.getElementById('overelay')
+const overlayContainer = document.getElementById('overlay-container');
 
 //1.chiamata con axios
 axios.get('https://jsonplaceholder.typicode.com/photos?_limit=6')
@@ -59,6 +58,20 @@ axios.get('https://jsonplaceholder.typicode.com/photos?_limit=6')
     ArrayOggetti.forEach(elementi => {
       const { title, url } = elementi;
       stampoCard(title, url)
+    });
+    //aggiungo l'evento click a tutte le immagini delle card
+    const photoCard = document.getElementById('photoCard'); // Singolo elemento
+    photoCard.addEventListener('click', () => {
+      overlayContainer.classList.remove('display-none');
+      overlayContainer.innerHTML = `
+        <div class="overlay-box">
+          <button id="bottoneChiusura" class="bottone">Chiudi</button>
+          <img src="./img nayt/nayt sorpresa.jpg" alt="">
+        </div>
+      `;
+      document.getElementById('bottoneChiusura').addEventListener('click', () => {
+        overlayContainer.classList.add('display-none');
+      });
     });
   });
 
