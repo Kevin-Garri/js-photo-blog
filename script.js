@@ -45,3 +45,60 @@ Avrò bisogno della proprietà "title", che mi fornirà il testo da inserire nel
     "thumbnailUrl": "https://via.placeholder.com/150/56a8c2"
   }
 ]*/
+
+//dati:
+const photoContainer = document.getElementById('photo-container');
+const overlayContainer = document.getElementById('overlay-container');
+
+//Chiamata AJAX all'Api:
+axios.get('https://jsonplaceholder.typicode.com/photos?_limit=6')
+  .then(res => {
+    const objectsArray = res.data;
+    objectsArray.forEach(elementi => {
+      const { title, url } = elementi;
+      stampoCard(title, url);
+    });
+
+    const cardImage = document.querySelectorAll('.immagine');
+
+    // Itero usando forEach
+    cardImage.forEach(image => {
+      // Assegno l'evento 'click' a ogni immagine
+      image.addEventListener('click', (event) => {
+        // Faccio apparire l'overlay
+        overlayContainer.classList.remove('display-none');
+        // Stampo in pagina l'elemento che conterrà l'immagine e il bottone
+        overlayContainer.innerHTML = `
+         <div class="overlay-box">
+            <button id="bottone-chiudi" class="bottone">Chiudi</button>
+            <img src="${event.target.src}" alt="">
+         </div>
+         `;
+        // Salvo il bottone a cui assegnerò la funzione di chiusura dell'overlay
+        const bottoneChiudi = document.getElementById('bottone-chiudi');
+        // Assegno al bottone 'chiudi' la funzione
+        bottoneChiudi.addEventListener('click', () => {
+          overlayContainer.classList.add('display-none');
+        });
+      });
+    });
+  });
+
+//funzione che stampa card:
+function stampoCard(title, url) {
+  photoContainer.innerHTML += `
+      <div class="col">
+         <div class="photo-card">
+            <div class="pin">
+               <img src="img/pin.svg" alt="">
+            </div>
+            <div class="card-image">
+               <img class="immagine" src="${url}" alt="">
+            </div>
+            <div class="text-image">
+               <p>${title}</p>
+            </div>
+         </div>
+      </div>
+   `
+}
